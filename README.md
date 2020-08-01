@@ -12,5 +12,5 @@ Check `play.yml` for roles and variables. All roles are available at Github. See
 
 ```sh
 ansible-galaxy install -r requirements.yml -f
-ansible-playbook play.yml
+ansible-playbook play.yml [-K] # -K for sudo password when you use a role that reuqires root priviledges
 ```
