@@ -1,0 +1,34 @@
+- name: ansible-role-basic
+  src: https://github.com/Allaman/ansible-role-basic.git
+  scm: git
+  version: master
+
+- name: ansible-role-shell
+  src: https://github.com/Allaman/ansible-role-shell.git
+  scm: git
+  version: master
+
+- name: ansible-role-dotfiles
+  src: https://github.com/Allaman/ansible-role-dotfiles.git
+  scm: git
+  version: master
+
+- name: ansible-role-binaries
+  src: https://github.com/Allaman/ansible-role-binaries.git
+  scm: git
+  version: master
+
+- name: ansible-role-languages
+  src: https://github.com/Allaman/ansible-role-languages.git
+  scm: git
+  version: master
+
+- name: ansible-role-system
+  src: https://github.com/Allaman/ansible-role-system.git
+  scm: git
+  version: master
+
+- name: ansible-role-packages
+  src: https://github.com/Allaman/ansible-role-packages.git
+  scm: git
+  version: master
