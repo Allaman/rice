@@ -32,3 +32,8 @@
   src: https://github.com/Allaman/ansible-role-packages.git
   scm: git
   version: master
+
+- name: ansible-role-gui
+  src: https://github.com/Allaman/ansible-role-gui.git
+  scm: git
+  version: master
