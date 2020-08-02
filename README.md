@@ -4,7 +4,7 @@
 
 [urban dictionary](https://www.urbandictionary.com/define.php?term=rice) by Dusk Coffee at December 20, 2004
 
-**Long story short**: Personal unique configuration of a operating system
+**Long story short**: Personal unique configuration of an operating system
 
 ## Install
 
