@@ -7,7 +7,7 @@
         terraform_version: 0.12.21
         awless_version: 0.1.11
         helm_version: 3.1.1
-        githubcli_version: 0.10.0
+        githubcli_version: 1.0.0
         stern_version: 1.11.0
         popeye_version: 0.7.1
         bat_version: 0.12.1
@@ -17,15 +17,15 @@
         doctl_version: 1.39.0
         ansible_ver: 2.9.5
         awscli_version: 1.18.2
-        kind_version: 0.8.1
+        kind_version: 0.9.0
         kubectl_version: 1.18.0
-        k9s_version: 0.21.4
+        k9s_version: 0.22.0
         kops_version: 1.16.0
         istioctl_version: 1.5.1
         mdbook_version: 0.3.7
         fluxctl_version: 1.19.0
-        kustomize_version: 3.8.0
-        lazygit_version: 0.20.4
+        kustomize_version: 3.8.2
+        lazygit_version: 0.22.1
         kubeseal_version: 0.12.4
         argocdcli_version: 1.5.6
         xsv_version: 0.13.0
@@ -40,14 +40,17 @@
         yq_version: 3.3.2
         jq_version: 1.6
         fd_version: v8.1.1
+        helm2_version: v2.16.9
+        kubeval_version: 0.15.0
+        polaris_version: 1.2.1
         gui: true
         hosts_pack: basic
   roles:
-    - { role: ansible-role-basic }
-    - { role: ansible-role-packages }
-    - { role: ansible-role-languages }
+    #- { role: ansible-role-basic }
+    #- { role: ansible-role-packages }
+    #- { role: ansible-role-languages }
     - { role: ansible-role-binaries }
-    - { role: ansible-role-system }
-    - { role: ansible-role-shell }
-    - { role: ansible-role-dotfiles }
-    - { role: ansible-role-gui, when: "gui == true" }
+    #- { role: ansible-role-system }
+    #- { role: ansible-role-shell }
+    #- { role: ansible-role-dotfiles }
+    #- { role: ansible-role-gui, when: "gui == true" }
