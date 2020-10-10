@@ -44,13 +44,16 @@
         kubeval_version: 0.15.0
         polaris_version: 1.2.1
         gui: true
+        aur: true
         hosts_pack: basic
+        thinkpad: true
+        user: michael
   roles:
     #- { role: ansible-role-basic }
     #- { role: ansible-role-packages }
     #- { role: ansible-role-languages }
-    - { role: ansible-role-binaries }
-    #- { role: ansible-role-system }
+    #- { role: ansible-role-binaries }
+    - { role: ansible-role-system }
     #- { role: ansible-role-shell }
     #- { role: ansible-role-dotfiles }
     #- { role: ansible-role-gui, when: "gui == true" }
