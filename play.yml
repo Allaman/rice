@@ -4,14 +4,14 @@
   connection: local
   pre_tasks:
     - set_fact:
-        terraform_version: 0.12.21
+        tfswitch_version: 0.8.832
         awless_version: 0.1.11
-        helm_version: 3.1.1
+        helm_version: 3.4.1
         githubcli_version: 1.0.0
         stern_version: 1.11.0
         popeye_version: 0.7.1
         bat_version: 0.12.1
-        exa_version : 0.9.0
+        exa_version: 0.9.0
         docker_version: 19.03.8
         docker_compose_version: 1.25.4
         doctl_version: 1.39.0
@@ -24,7 +24,7 @@
         istioctl_version: 1.5.1
         mdbook_version: 0.3.7
         fluxctl_version: 1.19.0
-        kustomize_version: 3.8.2
+        kustomize_version: 3.8.7
         lazygit_version: 0.22.1
         kubeseal_version: 0.12.4
         argocdcli_version: 1.5.6
@@ -43,17 +43,22 @@
         helm2_version: v2.16.9
         kubeval_version: 0.15.0
         polaris_version: 1.2.1
+        bit_version: 0.5.8
+        glab_version: 1.11.1
+        dog_version: v0.1.0
+        tflint_version: v0.21.0
+        k6_version: v0.29.0
         gui: true
         aur: true
         hosts_pack: basic
         thinkpad: true
         user: michael
   roles:
-    #- { role: ansible-role-basic }
-    #- { role: ansible-role-packages }
-    #- { role: ansible-role-languages }
-    #- { role: ansible-role-binaries }
+    - { role: ansible-role-basic }
+    - { role: ansible-role-packages }
+    - { role: ansible-role-languages }
+    - { role: ansible-role-binaries }
     - { role: ansible-role-system }
-    #- { role: ansible-role-shell }
-    #- { role: ansible-role-dotfiles }
-    #- { role: ansible-role-gui, when: "gui == true" }
+    - { role: ansible-role-shell }
+    - { role: ansible-role-dotfiles }
+    - { role: ansible-role-gui, when: "gui == true" }
