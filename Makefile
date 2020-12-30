@@ -21,7 +21,7 @@ install: ## Install roles via ansible-galaxy
 
 configure: ## Run ansible
 	@echo 'Run ansible-playbook'
-	$(playbook) play.ym -K
+	$(playbook) play.yml -K
 
 aur: ## Run yay to install aur packages
 	@echo 'Install AUR packages'
