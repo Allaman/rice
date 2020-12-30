@@ -8,7 +8,8 @@ help: ## This help.
 
 .DEFAULT_GOAL := help
 
-export PATH := ~/.local/bin:$(PATH)
+galaxy=~/.local/bin/ansible-galaxy
+playbook=~/.local/bin/ansible-playbook
 
 bootstrap: ## Install python and ansible
 	@echo 'Bootstraping your system for ansible (pip must be available)'
@@ -16,11 +17,11 @@ bootstrap: ## Install python and ansible
 
 install: ## Install roles via ansible-galaxy
 	@echo 'Installing roles via ansible-galaxy'
-	ansible-galaxy install -r requirements.yml -f
+	$(galaxy) install -r requirements.yml -f
 
 configure: ## Run ansible
 	@echo 'Run ansible-playbook'
-	ansible-playbook play.ym -K
+	$(playbook) play.ym -K
 
 aur: ## Run yay to install aur packages
 	@echo 'Install AUR packages'
