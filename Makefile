@@ -8,13 +8,15 @@ help: ## This help.
 
 .DEFAULT_GOAL := help
 
+export PATH := ~/.local/bin:$(PATH)
+
 bootstrap: ## Install python and ansible
 	@echo 'Bootstraping your system for ansible (pip must be available)'
 	pip install ansible --user
 
 install: ## Install roles via ansible-galaxy
 	@echo 'Installing roles via ansible-galaxy'
-	export PATH=$PATH:~/.local/bin/ && ansible-galaxy install -r requirements.yml -f
+	ansible-galaxy install -r requirements.yml -f
 
 configure: ## Run ansible
 	@echo 'Run ansible-playbook'
