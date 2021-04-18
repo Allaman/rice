@@ -17,15 +17,15 @@
         doctl_version: 1.39.0
         ansible_ver: 2.9.5
         awscli_version: 1.18.2
-        kind_version: 0.9.0
-        kubectl_version: 1.18.0
-        k9s_version: 0.22.0
+        kind_version: 0.10.0
+        kubectl_version: 1.20.0
+        k9s_version: 0.24.7
         kops_version: 1.16.0
         istioctl_version: 1.5.1
         mdbook_version: 0.3.7
-        fluxctl_version: 1.19.0
-        kustomize_version: 3.8.7
-        lazygit_version: 0.22.1
+        fluxctl_version: 1.21.0
+        kustomize_version: 4.1.2
+        lazygit_version: 0.27.4
         kubeseal_version: 0.12.4
         argocdcli_version: 1.5.6
         xsv_version: 0.13.0
@@ -34,19 +34,27 @@
         direnv_version: 2.21.3
         entr_version: 4.6
         nnn_version: 3.3
-        lf_version: r14
+        lf_version: r22
         delta_version: 0.3.0
         yq_version: 3.3.2
         jq_version: 1.6
-        fd_version: v8.1.1
+        fd_version: v8.2.1
         helm2_version: v2.16.9
         kubeval_version: 0.15.0
         polaris_version: 1.2.1
         bit_version: 0.5.8
-        glab_version: 1.11.1
+        glab_version: 1.14.0
         dog_version: v0.1.0
         tflint_version: v0.21.0
-        k6_version: v0.29.0
+        k6_version: v0.31.0
+        kubectx_version: v0.9.1
+        kubens_version: v0.9.1
+        duf_version: 0.6.0
+        pet_version: 0.3.6
+        scc_version: 3.0.0
+        sd_version: 0.7.6
+        gitui_version: 0.14.0
+        slack_term_version: 0.5.0
         gui: true
         aur: true
         hosts_pack: basic
