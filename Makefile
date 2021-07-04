@@ -25,7 +25,7 @@ configure: ## Run ansible
 
 aur: ## Run yay to install aur packages
 	@echo 'Install AUR packages'
-	yay -S masterpdfeditor urlview telepresence visual-studio-code-insiders rofi-emoji vidir glow
+	yay -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow
 
 
 all: bootstrap install configure ## Run all goals
