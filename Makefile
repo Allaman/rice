@@ -30,4 +30,4 @@ aur: ## Run yay to install aur packages
 
 all: bootstrap install configure ## Run all goals
 	@echo 'Applying R1c3'
-	docker build $(BUILDARGS) -t $(NAME) .
+	bootstrap install configure aur
