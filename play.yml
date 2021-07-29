@@ -28,7 +28,7 @@
         glab_version: 1.14.0
         helm2_version: v2.16.9
         helm_version: 3.4.1
-        istioctl_version: 1.5.1
+        istioctl_version: 1.10.3
         jq_version: 1.6
         k6_version: v0.31.0
         k9s_version: 0.24.10
@@ -42,7 +42,7 @@
         kubeval_version: 0.15.0
         kustomize_version: 4.1.2
         lazygit_version: 0.28.1
-        lf_version: r22
+        lf_version: r24
         mdbook_version: 0.3.7
         nnn_version: 3.3
         pet_version: 0.3.6
