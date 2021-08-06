@@ -8,26 +8,39 @@ help: ## This help.
 
 .DEFAULT_GOAL := help
 
-galaxy=~/.local/bin/ansible-galaxy
-playbook=~/.local/bin/ansible-playbook
+AUR_HELPER:=$(shell type -p yay || echo paru)
+ifneq (,$(findstring yay,$(EDITOR)))
+	AUR_HELPER:=yay
+else
+	AUR_HELPER:=paru
+endif
 
-bootstrap: ## Install python and ansible
+
+bootstrap: req-pip ## Install python and ansible
 	@echo 'Bootstraping your system for ansible (pip must be available)'
 	pip install ansible --user
 
-install: ## Install roles via ansible-galaxy
+install: req-galaxy ## Install roles via ansible-galaxy
 	@echo 'Installing roles via ansible-galaxy'
-	$(galaxy) install -r requirements.yml -f
+	ansible-galaxy install -r requirements.yml -f
 
-configure: ## Run ansible
+configure: req-playbook ## Run ansible
 	@echo 'Run ansible-playbook'
-	$(playbook) play.yml -K
+	ansible-playbook play.yml -K
 
-aur: ## Run yay to install aur packages
+aur: ## Run yay to install aur
 	@echo 'Install AUR packages'
-	yay -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow
-
+	$(AUR_HELPER) -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow google-cloud-sdk
 
 all: bootstrap install configure ## Run all goals
 	@echo 'Applying R1c3'
 	bootstrap install configure aur
+
+req-pip:
+	@command -v pip >/dev/null 2>&1 || { echo >&2 "require pip"; exit 1; }
+
+req-galaxy:
+	@command -v ansible-galaxy >/dev/null 2>&1 || { echo >&2 "require ansible-galaxy"; exit 1; }
+
+req-playbook:
+	@command -v ansible-playbook >/dev/null 2>&1 || { echo >&2 "require ansible-playbook"; exit 1; }
