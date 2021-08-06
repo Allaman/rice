@@ -16,6 +16,6 @@ help                           This help.
 bootstrap                      Install python and ansible
 install                        Install roles via ansible-galaxy
 configure                      Run ansible
-aur                            Run yay to install aur and additional packages
+aur                            Run yay to install aur
 all                            Run all goals
 ```
