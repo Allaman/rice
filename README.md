@@ -8,14 +8,14 @@
 
 ## Install
 
-Check `play.yml` for roles and variables. All roles are available at Github. See `requirements.yml` for links.
+Check `play.yml` for roles and variables. All roles are available at Github. See `requirements.yml`and [Github](https://github.com/Allaman?tab=repositories&q=ansible-role-&type=&language=&sort=) for more info
 
 ```sh
 ❯ make
 help                           This help.
 bootstrap                      Install ansible (pip required)
 install                        Install roles via ansible-galaxy
-configure                      Run ansible
-aur                            Run yay to install aur
-all                            Run all goals
+configure                      Run ansible-playbook
+aur                            Run AUR helper to install AUR packages
+all                            Run all goals (except AUR)
 ```

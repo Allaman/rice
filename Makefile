@@ -28,9 +28,9 @@ configure: req-playbook ## Run ansible
 	@echo 'Run ansible-playbook'
 	ansible-playbook play.yml -K
 
-aur: ## Run yay to install aur
+aur: ## Run AUR helper to install AUR packages
 	@echo 'Install AUR packages'
-	$(AUR_HELPER) -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow google-cloud-sdk
+	$(AUR_HELPER) -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow google-cloud-sdk aws-session-manager-plugin
 
 all: bootstrap install configure ## Run all goals
 	@echo 'Applying R1c3'
