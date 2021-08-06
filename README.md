@@ -11,6 +11,11 @@
 Check `play.yml` for roles and variables. All roles are available at Github. See `requirements.yml` for links.
 
 ```sh
-ansible-galaxy install -r requirements.yml -f
-ansible-playbook play.yml [-K] # -K for sudo password when you use a role that reuqires root priviledges
+❯ make
+help                           This help.
+bootstrap                      Install python and ansible
+install                        Install roles via ansible-galaxy
+configure                      Run ansible
+aur                            Run yay to install aur and additional packages
+all                            Run all goals
 ```
