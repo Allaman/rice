@@ -16,8 +16,8 @@ else
 endif
 
 
-bootstrap: req-pip ## Install python and ansible
-	@echo 'Bootstraping your system for ansible (pip must be available)'
+bootstrap: req-pip ## Install ansible (pip required)
+	@echo 'Bootstraping your system for ansible'
 	pip install ansible --user
 
 install: req-galaxy ## Install roles via ansible-galaxy

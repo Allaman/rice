@@ -13,7 +13,7 @@ Check `play.yml` for roles and variables. All roles are available at Github. See
 ```sh
 ❯ make
 help                           This help.
-bootstrap                      Install python and ansible
+bootstrap                      Install ansible (pip required)
 install                        Install roles via ansible-galaxy
 configure                      Run ansible
 aur                            Run yay to install aur
