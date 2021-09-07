@@ -33,6 +33,11 @@
   scm: git
   version: master
 
+- name: ansible-role-pip
+  src: https://github.com/Allaman/ansible-role-pip.git
+  scm: git
+  version: main
+
 - name: ansible-role-gui
   src: https://github.com/Allaman/ansible-role-gui.git
   scm: git
