@@ -2,9 +2,172 @@
 - name: Playbook
   hosts: localhost
   connection: local
-  pre_tasks:
-    - set_fact:
-        ansible_ver: 2.9.5
+  vars:
+    gui: true
+    hosts_pack: basic
+    thinkpad: true
+    user: michael
+  roles:
+    - role: ansible-role-basic
+    - role: ansible-role-system
+    - role: ansible-role-shell
+    - role: ansible-role-dotfiles
+    - role: ansible-role-packages
+      vars:
+        install_aur_helper: true
+        lang:
+          enabled: true
+          arch:
+            - python
+            - python-pip
+            - go
+            - nodejs
+            - npm
+        gui:
+          enabled: true
+          arch:
+            - alacritty
+            - chromium
+            - clipmenu
+            - exiv2
+            - firefox
+            - hledger
+            - hledger-ui
+            - inkscape
+            - intel-media-driver
+            - intel-ucode
+            - inxi
+            - isync
+            - keepassxc
+            - libreoffice
+            - libva-intel-driver
+            - libva-utils
+            - linux-firmware
+            - linux-headers
+            - manjaro-printer
+            - mesa
+            - mesa-demos
+            - pinta
+            - powertop
+            - sof-firmware
+            - sxhkd
+            - sxiv
+            - syncthing
+            - system-config-printer
+            - urlscan
+            - vulkan-icd-loader
+            - vulkan-intel
+            - vulkan-mesa-layers
+            - vulkan-tools
+            - wmctrl
+            - xbindkeys
+            - xbindkeys
+            - xcape
+            - xclip
+            - xf86-input-synaptics
+            - xorg-xinput
+            - xorg-xwininfo
+            - zathura-pdf-mupdf
+        cli:
+          enabled: true
+          common:
+            - bison
+            - coreutils
+            - clipmenu
+            - curl
+            - dateutils
+            - dnsutils
+            - docker
+            - emacs
+            - fdupes
+            - figlet
+            - flex
+            - htop
+            - hugo
+            - iftop
+            - iotop
+            - ipcalc
+            - lsof
+            - mariadb-clients
+            - mdp
+            - moreutils
+            - mpv
+            - msmtp
+            - neomutt
+            - newsboat
+            - notmuch
+            - notmuch-mutt
+            - npm
+            - pandoc
+            - pdfgrep
+            - pkg-config
+            - pwgen
+            - rofi
+            - rsync
+            - shellcheck
+            - sshfs
+            - strace
+            - sudo
+            - surfraw
+            - time
+            - tmux
+            - translate-shell
+            - trash-cli
+            - tree
+            - vifm
+            - w3m
+            - wget
+            - whois
+            - zip
+          debian:
+            - dnsutils
+            - exuberant-ctags
+            - libxfixes-dev
+            - x11proto-core-dev
+            - libx11-dev
+            - libxt-dev
+            - libxfixes-dev
+            - libxi-dev
+            - texlive
+            - libxext-dev
+          arch:
+            - ctags
+            - bind-tools
+            - entr
+            - prettier
+            - texlive-core
+    - role: ansible-role-pip
+      pip_packages:
+        - "molecule[docker]"
+        - aws-shell
+        - awscli
+        - flake8
+        - gita
+        - gitlabber
+        - grip
+        - httpie
+        - ipython
+        - jedi
+        - jupyterlab
+        - khal
+        - khard
+        - matplotlib
+        - molecule
+        - mycli
+        - neovim-remote
+        - pandas
+        - python-rofi
+        - ranger-fm
+        - selenium
+        - s4cmd
+        - speedtest-cli
+        - pytest-testinfra
+        - thefuck
+        - ueberzug
+        - yamllint
+        - vdirsyncer
+    - role: ansible-role-binaries
+      vars:
         argocdcli_version: 1.5.6
         awless_version: 0.1.11
         awscli_version: 1.18.2
@@ -17,41 +180,42 @@
         docker_compose_version: 1.25.4
         docker_version: 19.03.8
         doctl_version: 1.39.0
-        dog_version: v0.1.0
         dua_version: 2.14.4
+        dog_version: v0.1.0
         duf_version: 0.6.0
-        dust: 0.6.2
-        entr_version: 4.6
+        dust_version: 0.6.2
+        dyff_version: 1.4.3
         exa_version: 0.9.0
         fasd_version: 1.0.1
-        fd_version: v8.2.1
-        luxctl_version: 1.21.0
-        githubcli_version: 1.0.0
+        fd_version: v8.1.1
+        fluxctl_version: 1.19.0
+        githubcli_version: 0.6.2
         gitui_version: 0.14.0
-        glab_version: 1.14.0
+        glab_version: 1.11.1
         helm2_version: v2.16.9
-        helm_version: 3.4.1
+        helm_version: 3.1.1
+        highlight_pointer_version: 1.1.2
         istioctl_version: 1.10.3
         jq_version: 1.6
-        k6_version: v0.31.0
-        k9s_version: 0.24.14
-        kind_version: 0.11.0
+        k6_version: v0.34.0
+        k9s_version: 0.24.5
+        kind_version: 0.7.0
         kops_version: 1.16.0
         kube_linter_version: 0.2.2
-        kubectl_version: 1.20.0
+        kubectl_version: 1.18.0
         kubectx_version: v0.9.1
         kubens_version: v0.9.1
         kubeseal_version: 0.12.4
         kubeval_version: 0.15.0
-        kustomize_version: 4.1.2
-        lazygit_version: 0.28.1
-        lf_version: r24
+        kustomize_version: 3.5.5
+        lazygit_version: 0.20.4
+        lf_version: r14
         mdbook_version: 0.3.7
         nnn_version: 3.3
         pet_version: 0.3.6
         polaris_version: 1.2.1
         popeye_version: 0.7.1
-        ripgrep_version: 12.1.1
+        ripgrep_version: 13.0.0
         scc_version: 3.0.0
         sd_version: 0.7.6
         slack_term_version: 0.5.0
@@ -61,22 +225,275 @@
         tflint_version: v0.21.0
         tfswitch_version: 0.8.832
         tokei_version: 12.1.2
-        viddy_version: 0.1.6
         xsv_version: 0.13.0
-        yq_version: 4.9.3
+        viddy_version: 0.1.6
+        yq_version: 4.12.2
         zoxide_version: 0.7.3
-        gui: true
-        aur: true
-        hosts_pack: basic
-        thinkpad: true
-        user: michael
-  roles:
-    - { role: ansible-role-basic }
-    - { role: ansible-role-packages }
-    - { role: ansible-role-languages }
-    - { role: ansible-role-pip }
-    - { role: ansible-role-binaries }
-    - { role: ansible-role-system }
-    - { role: ansible-role-shell }
-    - { role: ansible-role-dotfiles }
-    - { role: ansible-role-gui, when: "gui == true" }
+        binaries:
+          - name: argocd
+            url: "https://github.com/argoproj/argo-cd/releases/download/v{{ argocdcli_version }}/argocd-linux-amd64"
+            bin_name: argocd-linux-amd64
+
+          - name: awless
+            url: "https://github.com/wallix/awless/releases/download/v{{ awless_version }}/awless-linux-amd64.tar.gz"
+            extract: true
+
+          - name: aws-iam-authenticator
+            url: "https://amazon-eks.s3-us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/aws-iam-authenticator"
+
+          - name: bat
+            url: "https://github.com/sharkdp/bat/releases/download/v{{ bat_version }}/bat-v{{ bat_version }}-x86_64-unknown-linux-gnu.tar.gz"
+            bin_path: "bat-v{{ bat_version }}-x86_64-unknown-linux-gnu"
+            extract: true
+
+          - name: bit
+            url: "https://github.com/chriswalz/bit/releases/download/v{{ bit_version }}/bit_{{ bit_version }}_Linux_x86_64.tar.gz"
+            extract: true
+
+          - name: broot
+            url: "https://dystroy.org/broot/download/x86_64-linux/broot"
+
+          - name: btm
+            url: "https://github.com/ClementTsang/bottom/releases/download/{{ bottom_version }}/bottom_x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+
+          - name: delta
+            url: "https://github.com/dandavison/delta/releases/download/{{ delta_version }}/delta-{{ delta_version }}-x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+            bin_path: "delta-{{ delta_version }}-x86_64-unknown-linux-gnu"
+
+          - name: direnv
+            url: "https://github.com/direnv/direnv/releases/download/v{{ direnv_version }}/direnv.linux-amd64"
+            bin_name: "direnv.linux-amd64"
+
+          - name: dive
+            url: "https://github.com/wagoodman/dive/releases/download/v{{ dive_version }}/dive_{{ dive_version }}_linux_amd64.tar.gz"
+            extract: true
+
+          - name: docker-compose
+            url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+            bin_name: docker-compose-Linux-x86_64
+
+          - name: docker
+            url: "https://download.docker.com/linux/static/stable/x86_64/docker-{{ docker_version }}.tgz"
+            bin_path: docker
+            extract: true
+
+          - name: doctl
+            url: "https://github.com/digitalocean/doctl/releases/download/v{{ doctl_version }}/doctl-{{ doctl_version }}-linux-amd64.tar.gz"
+            extract: true
+
+          - name: dog
+            url: "https://github.com/ogham/dog/releases/download/{{ dog_version }}/dog-{{ dog_version }}-x86_64-unknown-linux-gnu.zip"
+            extract: true
+            bin_path: bin
+
+          - name: dua
+            url: "https://github.com/Byron/dua-cli/releases/download/v{{ dua_version }}/dua-v{{ dua_version }}-x86_64-unknown-linux-musl.tar.gz"
+            extract: true
+            bin_path: "dua-v{{ dua_version}}-x86_64-unknown-linux-musl"
+
+          - name: duf
+            url: "https://github.com/muesli/duf/releases/download/v{{ duf_version }}/duf_{{ duf_version }}_linux_x86_64.tar.gz"
+            extract: true
+
+          - name: dust
+            url: "https://github.com/bootandy/dust/releases/download/v{{ dust_version }}/dust-v{{ dust_version }}-x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+            bin_path: "dust-v{{ dust_version }}-x86_64-unknown-linux-gnu"
+
+          - name: dyff
+            url: "https://github.com/homeport/dyff/releases/download/v{{ dyff_version }}/dyff_{{ dyff_version }}_linux_amd64.tar.gz"
+            extract: true
+
+          - name: exa
+            url: "https://github.com/ogham/exa/releases/download/v{{ exa_version }}/exa-linux-x86_64-{{ exa_version }}.zip"
+            extract: true
+            bin_name: "exa-linux-x86_64"
+
+          - name: fd
+            url: "https://github.com/sharkdp/fd/releases/download/{{ fd_version }}/fd-{{ fd_version }}-x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+            bin_path: "fd-{{ fd_version }}-x86_64-unknown-linux-gnu"
+
+          - name: fluxctl
+            url: "https://github.com/fluxcd/flux/releases/download/{{ fluxctl_version }}/fluxctl_linux_amd64"
+            bin_name: fluxctl_linux_amd64
+
+          - name: gh-md-toc
+            url: "https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc"
+
+          - name: git-quick-stats
+            url: "https://raw.githubusercontent.com/arzzen/git-quick-stats/master/git-quick-stats"
+
+          - name: gh
+            url: "https://github.com/cli/cli/releases/download/v{{ githubcli_version }}/gh_{{ githubcli_version }}_linux_amd64.tar.gz"
+            extract: true
+            bin_path: "gh_{{ githubcli_version }}_linux_amd64/bin"
+
+          - name: gitui
+            url: "https://github.com/extrawurst/gitui/releases/download/v{{ gitui_version }}/gitui-linux-musl.tar.gz"
+            extract: true
+
+          - name: glab
+            url: "https://github.com/profclems/glab/releases/download/v{{ glab_version }}/glab_{{ glab_version}}_Linux_x86_64.tar.gz"
+            extract: true
+            bin_path: bin
+
+          - name: helm2
+            url: "https://get.helm.sh/helm-{{ helm2_version }}-linux-amd64.tar.gz"
+            extract: true
+            bin_path: linux-amd64/
+            bin_name: helm
+
+          - name: helm
+            url: "https://get.helm.sh/helm-v{{ helm_version }}-linux-amd64.tar.gz"
+            extract: true
+            bin_path: linux-amd64/
+
+          - name: highlight-pointer
+            url: "https://github.com/swillner/highlight-pointer/releases/download/v{{ highlight_pointer_version }}/highlight-pointer"
+
+          - name: istioctl
+            url: "https://github.com/istio/istio/releases/download/{{ istioctl_version }}/istioctl-{{ istioctl_version }}-linux-amd64.tar.gz"
+            extract: true
+
+          - name: jq
+            url: "https://github.com/stedolan/jq/releases/download/jq-{{ jq_version }}/jq-linux64"
+            bin_name: jq-linux64
+
+          - name: k6
+            url: "https://github.com/loadimpact/k6/releases/download/{{ k6_version }}/k6-{{ k6_version }}-linux-amd64.tar.gz"
+            extract: true
+            bin_path: "k6-{{ k6_version }}-linux-amd64"
+
+          - name: k9s
+            url: "https://github.com/derailed/k9s/releases/download/v{{ k9s_version }}/k9s_Linux_x86_64.tar.gz"
+            extract: true
+
+          - name: kind
+            url: "https://github.com/kubernetes-sigs/kind/releases/download/v{{ kind_version }}/kind-linux-amd64"
+            bin_name: kind-linux-amd64
+
+          - name: kops
+            url: "https://github.com/kubernetes/kops/releases/download/v{{ kops_version }}/kops-linux-amd64"
+            bin_name: kops-linux-amd64
+
+          - name: kube-linter
+            url: "https://github.com/stackrox/kube-linter/releases/download/{{ kube_linter_version }}/kube-linter-linux.tar.gz"
+            extract: true
+
+          - name: kubectl
+            url: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/linux/amd64/kubectl"
+
+          - name: kubectx
+            url: "https://github.com/ahmetb/kubectx/releases/download/{{ kubectx_version }}/kubectx"
+
+          - name: kubens
+            url: "https://github.com/ahmetb/kubectx/releases/download/{{ kubens_version }}/kubens"
+
+          - name: kubeseal
+            url: "https://github.com/bitnami-labs/sealed-secrets/releases/download/v{{ kubeseal_version }}/kubeseal-linux-amd64"
+            bin_name: kubeseal-linux-amd64
+
+          - name: kubeval
+            url: "https://github.com/instrumenta/kubeval/releases/download/{{ kubeval_version }}/kubeval-linux-amd64.tar.gz"
+            extract: true
+
+          - name: kustomize
+            url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{{ kustomize_version }}/kustomize_v{{ kustomize_version }}_linux_amd64.tar.gz"
+            extract: true
+
+          - name: lazygit
+            url: "https://github.com/jesseduffield/lazygit/releases/download/v{{ lazygit_version }}/lazygit_{{ lazygit_version }}_Linux_x86_64.tar.gz"
+            extract: true
+
+          - name: lf
+            url: "https://github.com/gokcehan/lf/releases/download/{{ lf_version }}/lf-linux-amd64.tar.gz"
+            extract: true
+
+          - name: mdbook
+            url: "https://github.com/rust-lang/mdBook/releases/download/v{{ mdbook_version }}/mdbook-v{{ mdbook_version }}-x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+
+          - name: mgitstatus
+            url: "https://raw.githubusercontent.com/fboender/multi-git-status/master/mgitstatus"
+
+          - name: nnn
+            url: "https://github.com/jarun/nnn/releases/download/v{{ nnn_version }}/nnn-static-{{ nnn_version }}.x86_64.tar.gz"
+            extract: true
+            bin_name: nnn-static
+
+          - name: pet
+            url: "https://github.com/knqyf263/pet/releases/download/v{{ pet_version }}/pet_{{ pet_version }}_linux_amd64.tar.gz"
+            extract: true
+
+          - name: polaris
+            url: "https://github.com/FairwindsOps/polaris/releases/download/{{ polaris_version }}/polaris_{{ polaris_version }}_linux_amd64.tar.gz"
+            extract: true
+
+          - name: popeye
+            url: "https://github.com/derailed/popeye/releases/download/v{{ popeye_version }}/popeye_Linux_x86_64.tar.gz"
+            extract: true
+
+          - name: prettyping
+            url: "https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping"
+
+          - name: ripgrep
+            url: "https://github.com/BurntSushi/ripgrep/releases/download/{{ ripgrep_version }}/ripgrep-{{ ripgrep_version }}-x86_64-unknown-linux-musl.tar.gz"
+            extract: true
+            bin_path: "ripgrep-{{ ripgrep_version }}-x86_64-unknown-linux-musl"
+            bin_name: rg
+
+          - name: scc
+            url: "https://github.com/boyter/scc/releases/download/v{{ scc_version }}/scc-{{ scc_version }}-x86_64-unknown-linux.zip"
+            extract: true
+
+          - name: sd
+            url: "https://github.com/chmln/sd/releases/download/v{{ sd_version }}/sd-v{{ sd_version }}-x86_64-unknown-linux-gnu"
+            bin_name: "sd-v{{ sd_version }}-x86_64-unknown-linux-gnu"
+
+          - name: slack-term
+            url: "https://github.com/erroneousboat/slack-term/releases/download/v{{ slack_term_version }}/slack-term-linux-amd64"
+            bin_name: slack-term-linux-amd64
+
+          - name: stern
+            url: "https://github.com/wercker/stern/releases/download/{{ stern_version }}/stern_linux_amd64"
+            bin_name: stern_linux_amd64
+
+          - name: tectonic
+            url: "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%40{{ tectonic_version }}/tectonic-{{ tectonic_version }}-x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+
+          - name: texlab
+            url: "https://github.com/latex-lsp/texlab/releases/download/{{ texlab_version }}/texlab-x86_64-linux.tar.gz"
+            extract: true
+
+          - name: tflint
+            url: "https://github.com/terraform-linters/tflint/releases/download/{{ tflint_version }}/tflint_linux_amd64.zip"
+            extract: true
+
+          - name: tfswitch
+            url: "https://github.com/warrensbox/terraform-switcher/releases/download/{{tfswitch_version}}/terraform-switcher_{{tfswitch_version}}_linux_amd64.tar.gz"
+            extract: true
+
+          - name: tokei
+            url: "https://github.com/XAMPPRocky/tokei/releases/download/v{{ tokei_version }}/tokei-x86_64-unknown-linux-gnu.tar.gz"
+            extract: true
+
+          - name: xsv
+            url: "https://github.com/BurntSushi/xsv/releases/download/{{ xsv_version }}/xsv-{{ xsv_version }}-x86_64-unknown-linux-musl.tar.gz"
+            extract: true
+
+          - name: yq
+            url: "https://github.com/mikefarah/yq/releases/download/v{{ yq_version }}/yq_linux_amd64"
+            bin_name: yq_linux_amd64
+
+          - name: zoxide
+            url: "https://github.com/ajeetdsouza/zoxide/releases/download/v{{ zoxide_version }}/zoxide-x86_64-unknown-linux-musl.tar.gz"
+            extract: true
+            bin_path: zoxide-x86_64-unknown-linux-musl
+
+          - name: viddy
+            url: "https://github.com/sachaos/viddy/releases/download/v{{ viddy_version }}/viddy_{{ viddy_version }}_Linux_x86_64.tar.gz"
+            extract: true
