@@ -30,7 +30,7 @@ configure: req-playbook ## Run ansible
 
 aur: ## Run AUR helper to install AUR packages
 	@echo 'Install AUR packages'
-	$(AUR_HELPER) -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow google-cloud-sdk aws-session-manager-plugin postman nerd-fonts-fira-code xbanish
+	$(AUR_HELPER) -S masterpdfeditor urlview telepresence vscodium-bin rofi-emoji vidir glow google-cloud-sdk aws-session-manager-plugin postman nerd-fonts-fira-code xbanish keyd-git
 
 all: bootstrap install configure ## Run all goals
 	@echo 'Applying R1c3'
