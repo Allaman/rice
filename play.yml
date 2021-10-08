@@ -31,6 +31,8 @@
             - clipmenu
             - exiv2
             - firefox
+            - flameshot
+            - geeqie
             - hledger
             - hledger-ui
             - inkscape
@@ -148,6 +150,7 @@
         - httpie
         - ipython
         - jedi
+        - jedi-language-server
         - jupyterlab
         - khal
         - khard
@@ -188,9 +191,9 @@
         exa_version: 0.9.0
         fasd_version: 1.0.1
         fd_version: v8.1.1
-        fluxctl_version: 1.19.0
+        fluxctl_version: 1.21.0
         githubcli_version: 0.6.2
-        gitui_version: 0.14.0
+        gitui_version: 0.17.1
         glab_version: 1.11.1
         helm2_version: v2.16.9
         helm_version: 3.1.1
@@ -199,17 +202,17 @@
         jq_version: 1.6
         k6_version: v0.34.0
         k9s_version: 0.24.5
-        kind_version: 0.7.0
+        kind_version: 0.11.1
         kops_version: 1.16.0
         kube_linter_version: 0.2.2
-        kubectl_version: 1.18.0
+        kubectl_version: 1.20.0
         kubectx_version: v0.9.1
         kubens_version: v0.9.1
         kubeseal_version: 0.12.4
         kubeval_version: 0.15.0
-        kustomize_version: 3.5.5
-        lazygit_version: 0.20.4
-        lf_version: r14
+        kustomize_version: 4.1.2
+        lazygit_version: 0.28.1
+        lf_version: r24
         mdbook_version: 0.3.7
         nnn_version: 3.3
         pet_version: 0.3.6
@@ -229,7 +232,12 @@
         viddy_version: 0.1.6
         yq_version: 4.12.2
         zoxide_version: 0.7.3
+        logcli_version: v2.3.0
         binaries:
+          - name: hey
+            url: "https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64"
+            bin_name: hey_linux_amd64
+
           - name: argocd
             url: "https://github.com/argoproj/argo-cd/releases/download/v{{ argocdcli_version }}/argocd-linux-amd64"
             bin_name: argocd-linux-amd64
@@ -411,6 +419,11 @@
           - name: lf
             url: "https://github.com/gokcehan/lf/releases/download/{{ lf_version }}/lf-linux-amd64.tar.gz"
             extract: true
+
+          - name: logcli
+            url: "https://github.com/grafana/loki/releases/download/{{ logcli_version }}/logcli-linux-amd64.zip"
+            extract: true
+            bin_name: logcli-linux-amd64
 
           - name: mdbook
             url: "https://github.com/rust-lang/mdBook/releases/download/v{{ mdbook_version }}/mdbook-v{{ mdbook_version }}-x86_64-unknown-linux-gnu.tar.gz"
